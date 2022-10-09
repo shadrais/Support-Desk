@@ -4,11 +4,13 @@ require('dotenv').config()
 require('colors')
 const connectDB = require('./config/db')
 const errorHandler = require('./middleware/errorMiddleware')
+const cors = require('cors')
 
 //Connect to database
 connectDB()
 
 const app = express()
+app.use(cors())
 const PORT = process.env.PORT || 3000
 
 app.use(express.json())
@@ -22,6 +24,9 @@ app.get('/', (req, res) => {
 
 // Users routes
 app.use('/api/users', require('./routes/userRoutes'))
+
+// Tickets routes
+app.use('/api/tickets', require('./routes/ticketRoutes'))
 
 // Error handler
 app.use(errorHandler)
