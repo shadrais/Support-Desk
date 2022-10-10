@@ -104,7 +104,7 @@ const Ticket = () => {
         <h2>Notes</h2>
       </header>
 
-      {ticket.status !== "closed" && (
+      {ticket.status !== "Closed" && (
         <button onClick={openModal} className="btn">
           <FaPlus /> Add Note
         </button>
@@ -145,7 +145,7 @@ const Ticket = () => {
         <Spinner />
       )}
 
-      {ticket.status !== "closed" && (
+      {ticket.status !== "Closed" && (
         <button onClick={onTicketClose} className="btn btn-block btn-danger">
           Close Ticket
         </button>
