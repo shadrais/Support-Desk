@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "proxy": "http://localhost:3000",
   "description": "Support Ticket System",
-  "main": "server.js",
+  "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",

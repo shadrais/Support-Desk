@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import ticketApi from "./ticketService";
 import { logout } from "../auth/authSlice";
 
-const initialState = {
+export const initialState = {
   tickets: [],
   ticket: {},
   isLoading: false,
