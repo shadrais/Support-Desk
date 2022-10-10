@@ -86,6 +86,7 @@ const ticketSlice = createSlice({
       state.isError = false;
       state.isSuccess = false;
       state.message = "";
+      state.ticket = {};
     },
   },
   extraReducers: (builder) => {
