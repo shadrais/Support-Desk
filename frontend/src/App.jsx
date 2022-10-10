@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Header from './components/Header'
+import Tickets from './pages/Tickets'
 import NewTicket from './pages/NewTicket'
 import ProtectedRoutes from './components/ProtectedRoutes'
 
@@ -20,6 +21,9 @@ const App = () => {
             <Route path='/register' element={<Register />} />
             <Route path='/new-ticket' element={<ProtectedRoutes />}>
               <Route path='/new-ticket' element={<NewTicket />} />
+            </Route>
+            <Route path='/tickets' element={<ProtectedRoutes />}>
+              <Route path='/tickets' element={<Tickets />} />
             </Route>
           </Routes>
         </div>

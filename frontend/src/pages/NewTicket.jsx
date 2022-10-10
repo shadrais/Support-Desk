@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
-
+import Spinner from '../components/Spinner'
+import { createTicket, reset } from '../features/ticket/ticketSlice'
 const products = [
+  'Select Product',
   'Laptop',
   'Mobile',
   'Camera',
@@ -21,6 +24,24 @@ const NewTicket = () => {
     description: '',
   })
 
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.ticket
+  )
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+      navigate('/login')
+    }
+    if (isSuccess) {
+      navigate('/tickets')
+      toast.success('Ticket Created Successfully')
+    }
+    dispatch(reset())
+  }, [isError, isSuccess, message])
+
   const handleChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -34,6 +55,11 @@ const NewTicket = () => {
       return toast.error('Please fill in all fields')
     }
     console.log(formData)
+    dispatch(createTicket(formData))
+  }
+
+  if (isLoading) {
+    return <Spinner />
   }
 
   return (
@@ -45,13 +71,19 @@ const NewTicket = () => {
       <section className='form'>
         <div className='form-group'>
           <label htmlFor='name'>Customer Name</label>
-          <input type='text' name='name' id='name' value={user.name} disabled />
+          <input
+            type='text'
+            name='name'
+            id='name'
+            value={user?.name}
+            disabled
+          />
           <label htmlFor='email'>Customer Email</label>
           <input
             type='text'
             name='email'
             id='email'
-            value={user.email}
+            value={user?.email}
             disabled
           />
         </div>
@@ -60,7 +92,9 @@ const NewTicket = () => {
             <label htmlFor='product'>Product</label>
             <select name='product' id='product' onChange={handleChange}>
               {products.map((product) => (
-                <option key={product} value={product}>
+                <option
+                  key={product}
+                  value={product === 'Select Product' ? '' : product}>
                   {product}
                 </option>
               ))}

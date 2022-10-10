@@ -16,12 +16,12 @@ const protect = asyncHandler(async (req, res, next) => {
     } catch (error) {
       console.error(error)
       res.status(401)
-      throw new Error('Not authorized, token failed')
+      throw new Error('Session expired, please login again')
     }
   }
   if (!token) {
     res.status(401)
-    throw new Error('Not authorized, no token')
+    throw new Error('Session expired, please login again')
   }
 })
 

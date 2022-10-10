@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 const useAuthStatus = () => {
   const [loggedIn, setLoggedIn] = useState(false)
   const [checkingStatus, setCheckingStatus] = useState(true)
-  const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
 
   useEffect(() => {
