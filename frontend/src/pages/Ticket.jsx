@@ -25,7 +25,6 @@ const Ticket = () => {
     if (isError) {
       toast.error(message);
     }
-    dispatch(reset());
   }, [isError, message]);
 
   const onTicketClose = () => {
@@ -56,7 +55,7 @@ const Ticket = () => {
           <p>{ticket.description}</p>
         </div>
       </header>
-      {ticket.status !== "Close" && (
+      {ticket.status !== "Closed" && (
         <button className="btn btn-block btn-danger" onClick={onTicketClose}>
           Close Ticket
         </button>

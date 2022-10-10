@@ -18,8 +18,9 @@ const Tickets = () => {
       toast.error(message);
       navigate("/login");
     }
+    console.log("Called");
     // dispatch(reset());
-  }, [isError, message, isSuccess]);
+  }, [isError, message]);
 
   useEffect(() => {
     dispatch(getTickets());
