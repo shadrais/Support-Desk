@@ -237,13 +237,13 @@ h3 {
   text-align: center;
 }
 
-.status-new {
+.status-open {
   background-color: green;
   color: #fff;
   border-radius: 10px;
 }
 
-.status-open {
+.status-progress {
   background-color: steelblue;
   color: #fff;
   border-radius: 10px;

@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const baseUrl =
-  "https://3000-shadrais-supportdesk-p1zndkfksd9.ws-us70.gitpod.io/api/tickets";
-
+// const baseUrl =
+//   "https://3000-shadrais-supportdesk-p1zndkfksd9.ws-us70.gitpod.io/api/tickets";
+const baseUrl = "https://brown-beaver-slip.cyclic.app/api/tickets/";
 const createTicket = async (ticketData, token) => {
   const config = {
     headers: {
