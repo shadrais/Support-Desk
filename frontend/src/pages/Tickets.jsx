@@ -19,11 +19,13 @@ const Tickets = () => {
       navigate("/login");
     }
     // dispatch(reset());
-  }, [dispatch, isError, message, isSuccess]);
+  }, [isError, message, isSuccess]);
 
   useEffect(() => {
     dispatch(getTickets());
+    console.log("Dispatch");
     return () => {
+      console.log("All Tickets Unmount");
       dispatch(reset());
     };
   }, []);

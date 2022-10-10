@@ -25,7 +25,7 @@ const Ticket = () => {
     if (isError) {
       toast.error(message);
     }
-    // dispatch(reset());
+    dispatch(reset());
   }, [isError, message]);
 
   const onTicketClose = () => {
