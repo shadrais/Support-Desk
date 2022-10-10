@@ -15,13 +15,17 @@ const Ticket = () => {
   const navigate = useNavigate();
   useEffect(() => {
     dispatch(getTicket(params.ticketId));
+    return () => {
+      console.log("Single Ticket unmount");
+      dispatch(reset());
+    };
   }, []);
 
   useEffect(() => {
     if (isError) {
       toast.error(message);
     }
-    dispatch(reset());
+    // dispatch(reset());
   }, [isError, message]);
 
   const onTicketClose = () => {

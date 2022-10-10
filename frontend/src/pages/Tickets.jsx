@@ -18,11 +18,14 @@ const Tickets = () => {
       toast.error(message);
       navigate("/login");
     }
-    dispatch(reset());
+    // dispatch(reset());
   }, [dispatch, isError, message, isSuccess]);
 
   useEffect(() => {
     dispatch(getTickets());
+    return () => {
+      dispatch(reset());
+    };
   }, []);
 
   if (isLoading) {
