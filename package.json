@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "client": "cd frontend/ && pnpm run dev"
+    "client": "cd frontend/ && pnpm run dev",
+    "postbuild" : "cd frontend/ && pnpm run build"
   },
   "author": "Shad Rais",
   "license": "MIT",
