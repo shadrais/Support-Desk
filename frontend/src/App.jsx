@@ -8,6 +8,7 @@ import Header from './components/Header'
 import Tickets from './pages/Tickets'
 import NewTicket from './pages/NewTicket'
 import ProtectedRoutes from './components/ProtectedRoutes'
+import Ticket from './pages/Ticket'
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
             </Route>
             <Route path='/tickets' element={<ProtectedRoutes />}>
               <Route path='/tickets' element={<Tickets />} />
+            </Route>
+            <Route path='/ticket/:ticketId' element={<ProtectedRoutes />}>
+              <Route path='/ticket/:ticketId' element={<Ticket />} />
             </Route>
           </Routes>
         </div>
